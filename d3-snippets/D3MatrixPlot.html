@@ -42,10 +42,9 @@ var D3MatrixPlot = function(id,data,params){
             Object.entries(params)
         .forEach(function(entry){
             if(typeof(entry[1]) ===  "string"){
-                entry[1] = "'" + entry[1] + "'"
-                console.log(entry[1])
+                entry[1] = "'" + entry[1] + "'";
             }
-        eval("parameter."+entry[0]+"="+String(entry[1]))
+        eval("parameter."+entry[0]+"="+String(entry[1]));
         });
     };
         //  Convert margin in percentages to pixels
@@ -67,11 +66,13 @@ var D3MatrixPlot = function(id,data,params){
         var rows = [];
         for(var j = 0;j < data.length;j++){
             for(var i = 0;i < data[j].length;i++){
-                rows.push({"x": i* rect_width,
-                            "y": j* rect_height,
-                            "value":data[j][i]});
+                if(data[j][i] == 1){
+                    rows.push({"x": i* rect_width,
+                        "y": j* rect_height,
+                        "value":data[j][i]});
+                }
             }
-        };
+        }
     
     var svg = d3.select("#" + id)
         .append("svg")

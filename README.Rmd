@@ -1,7 +1,16 @@
-r2d3 Snippets
-================
+---
+title: "r2d3 Snippets"
+output: github_document
+---
 
-``` r
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(r2d3)
+# webshot::install_phantomjs()
+```
+
+
+```{r}
 library(r2d3)
 # webshot doesn't work somehow
 ```
@@ -10,11 +19,9 @@ library(r2d3)
 
 ## D3MatrixPlot
 
-Create a plot from a matrix with only 0s and 1s. Can be used to create
-something like Conway’s Game of Life. Graphs attributes can be provided
-in options. All available ones can be seen in `D3MatrixPlot.js`.
+Create a plot from a matrix with only 0s and 1s. Can be used to create something like Conway's Game of Life. Graphs attributes can be provided in options. All available ones can be seen in `D3MatrixPlot.js`.
 
-``` r
+```{r}
 set.seed(1234)
 my_matrix <- matrix(sample(c(0,1),size = 225,replace = TRUE),nrow = 15,ncol = 15)
 
@@ -31,5 +38,5 @@ D3MatrixPlot <- r2d3(data = my_matrix,
 
 # save_d3_html(D3MatrixPlot,"d3-imgs/D3MatrixPlot.html")
 ```
-
 ![](d3-imgs/D3MatrixPlot.png)
+
