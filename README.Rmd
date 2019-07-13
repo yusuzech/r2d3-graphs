@@ -23,20 +23,24 @@ Create a plot from a matrix with only 0s and 1s. Can be used to create something
 
 ```{r}
 set.seed(1234)
-my_matrix <- matrix(sample(c(0,1),size = 225,replace = TRUE),nrow = 15,ncol = 15)
+my_matrix <- matrix(sample(c(0,1),size = 150,replace = TRUE),nrow = 10,ncol = 15)
 
 height <- 300
 width <- 300               
 D3MatrixPlot <- r2d3(data = my_matrix,
      script = "r2d3-snippets/D3MatrixPlot.js",
      options = list(
-         "rect.fill" = "red",
-         "rect.margin" = "20%"
+         params = list(
+            "rect.fill" = "red",
+            "rect.margin" = "20%",
+            "svg.fix" = "height",
+            "svg.aspectRatio" = 1.5
+         )
     ),
      width = width,
      height = height)
 
-# save_d3_html(D3MatrixPlot,"d3-imgs/D3MatrixPlot.html")
+# D3MatrixPlot
 ```
 ![](d3-imgs/D3MatrixPlot.png)
 

@@ -1,4 +1,4 @@
-// !preview r2d3 data=matrix(c(1,1,0,1,0,0,1,1,0,1,1,1,1,1,1,0),nrow = 4,ncol = 4,byrow = TRUE),options = list("rect.margin" = "20%","rect.fill"="red")
+// !preview r2d3 data=matrix(c(1,1,0,1,0,0,1,1,0,1,1,1,1,1,1,0),nrow = 4,ncol = 4,byrow = TRUE),options = list(params = list("rect.margin" = "20%","rect.fill"="red","svg.fix" = "height"))
 var parameter = {
     margin:{
         top:"5%",
@@ -9,22 +9,42 @@ var parameter = {
 // User shouldn't change svg width and height here, instead use width and height argument provided by r2d3
     svg:{
         width: width,
-        height: height
+        height: height,
+        aspectRatio:1,
+        fix:"auto",
+        background:"white"
     },
     rect:{
         fill:"rgb(135, 206, 235)",
         margin:"5%"
     }
 };
+
+
+
 //  user modified parameters from options argument
 if(options !== null){
-    Object.entries(options).forEach(function(entry){
-        if(typeof(entry[1]) ===  "string"){
-            entry[1] = "'" + entry[1] + "'";
-        }
-    eval("parameter."+entry[0]+"="+String(entry[1]));
-});
+    if(options.params !== null){
+        Object.entries(options.params).forEach(function(entry){
+            if(typeof(entry[1]) ===  "string"){
+                entry[1] = "'" + entry[1] + "'";
+            }
+        eval("parameter."+entry[0]+"="+String(entry[1]));
+        });
+    }
 }
+
+if(parameter.svg.fix === "width"){
+    parameter.svg.height = parameter.svg.width/parameter.svg.aspectRatio;
+} else if(parameter.svg.fix === "height"){
+    parameter.svg.width = parameter.svg.height * parameter.svg.aspectRatio;
+} else if(parameter.svg.fix  === "auto"){
+    
+} else{
+    console.log(`params.svg.aspectRatio must be one of width,height or auto.`);
+}
+
+
 
 var margin = {
     top:parameter.svg.height * (parseFloat(parameter.margin.top)/100),
@@ -52,9 +72,10 @@ for(var j = 0;j < data.length;j++){
     }
 }
 
-svg
+svg = svg
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .style("background",parameter.svg.background)
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 

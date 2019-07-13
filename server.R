@@ -6,10 +6,13 @@ server <- function(input, output, session) {
         height <- 500
         width <- 500               
         D3MatrixPlot <- r2d3(data = my_matrix,
-                             script = "d3-scripts/D3MatrixPlot.js",
+                             script = "r2d3-snippets/D3MatrixPlot.js",
                              options = list(
-                                 "rect.fill" = "red",
-                                 "rect.margin" = "20%"
+                                 params = list(
+                                     "rect.margin" = "20%",
+                                     "svg.fix" = "height",
+                                     "svg.background" = "rgb(236, 240, 245)"
+                                 )
                              ),
                              width = width,
                              height = height)
