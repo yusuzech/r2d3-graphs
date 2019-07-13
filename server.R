@@ -9,6 +9,7 @@ server <- function(input, output, session) {
                              script = "r2d3-snippets/D3MatrixPlot.js",
                              options = list(
                                  params = list(
+                                     "rect.fill" = input$D3MatrixPlotRectFill,
                                      "rect.margin" = "20%",
                                      "svg.fix" = "height",
                                      "svg.background" = "rgb(236, 240, 245)"

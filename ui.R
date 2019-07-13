@@ -18,7 +18,16 @@ body <- dashboardBody(
             fluidRow(
                 column(
                     width = 6,
-                    d3Output("D3MatrixPlot1")
+                    sidebarLayout(
+                        sidebarPanel(
+                            colourpicker::colourInput(
+                                inputId = "D3MatrixPlotRectFill",
+                                label = "Pick Rectangle Fill Color:",
+                                value = "#87ceeb"
+                            )
+                        ),
+                        mainPanel(d3Output("D3MatrixPlot1"))
+                    )
                 )
             )
         )
