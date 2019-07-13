@@ -3,10 +3,13 @@ r2d3 Snippets
 
 ``` r
 library(r2d3)
-# webshot doesn't work somehow
 ```
 
-# Examples From r2d3-snippets
+# Examples of r2d3-snippets
+
+**You can view all following examples on this shiny app:**
+
+<https://yifyan-yusuzech.shinyapps.io/yusuzech-r2d3-app/>
 
 ## D3MatrixPlot
 

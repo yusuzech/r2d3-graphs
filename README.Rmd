@@ -6,16 +6,19 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(r2d3)
-# webshot::install_phantomjs()
 ```
 
 
 ```{r}
 library(r2d3)
-# webshot doesn't work somehow
 ```
 
-# Examples From r2d3-snippets
+# Examples of r2d3-snippets
+
+**You can view all following examples on this shiny app:**
+
+https://yifyan-yusuzech.shinyapps.io/yusuzech-r2d3-app/
+
 
 ## D3MatrixPlot
 
