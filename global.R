@@ -1,5 +1,7 @@
 library(shiny)
 library(shinyjs)
+library(shinyWidgets)
 library(r2d3)
 library(shinydashboard)
 library(colourpicker)
+library(stringr)

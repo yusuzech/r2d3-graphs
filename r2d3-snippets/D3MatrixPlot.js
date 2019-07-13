@@ -39,7 +39,7 @@ if(parameter.svg.fix === "width"){
 } else if(parameter.svg.fix === "height"){
     parameter.svg.width = parameter.svg.height * parameter.svg.aspectRatio;
 } else if(parameter.svg.fix  === "auto"){
-    
+    parameter.svg.height = parameter.svg.width/parameter.svg.aspectRatio;
 } else{
     console.log(`params.svg.aspectRatio must be one of width,height or auto.`);
 }
@@ -47,10 +47,10 @@ if(parameter.svg.fix === "width"){
 
 
 var margin = {
-    top:parameter.svg.height * (parseFloat(parameter.margin.top)/100),
-    bottom:parameter.svg.height *(parseFloat(parameter.margin.bottom)/100),
-    left:parameter.svg.width *(parseFloat(parameter.margin.left)/100),
-    right:parameter.svg.width *(parseFloat(parameter.margin.right)/100)
+    top: parameter.svg.height * (parseFloat(parameter.margin.top)/100),
+    bottom: parameter.svg.height * (parseFloat(parameter.margin.bottom)/100),
+    left: parameter.svg.width * (parseFloat(parameter.margin.left)/100),
+    right: parameter.svg.width * (parseFloat(parameter.margin.right)/100)
 };
 
 //   Create graphs
@@ -71,6 +71,9 @@ for(var j = 0;j < data.length;j++){
         }
     }
 }
+
+svg.selectAll("rect")
+    .remove();
 
 svg = svg
     .attr("width", width + margin.left + margin.right)
