@@ -17,6 +17,17 @@ Create a plot from a matrix with only 0s and 1s. Can be used to create
 something like Conway’s Game of Life. Graphs attributes can be provided
 in options. All available ones can be seen in `D3MatrixPlot.js`.
 
+Available Parameters are:
+
+SVG Margins, Width, Height and Background Color:
+
+> “margin.top”,“margin.bottom”, “margin.left”,“margin.right”, “svg.fix”,
+> “svg.aspectRatio”, “svg.background”
+
+Rectangle Fill and Margin:
+
+> “rect.fill”, “rect.margin”,
+
 ``` r
 set.seed(1234)
 my_matrix <- matrix(sample(c(0,1),size = 150,replace = TRUE),nrow = 10,ncol = 15)

@@ -88,7 +88,28 @@ body <- dashboardBody(
                                 post = "%"
                             )
                         ),
-                        mainPanel(d3Output("D3MatrixPlot1"))
+                        mainPanel(
+                            tabsetPanel(
+                                tabPanel(
+                                    "Plot",
+                                    d3Output("D3MatrixPlot1")
+                                ),
+                                tabPanel(
+                                    "Sever Code",
+                                    tags$div(
+                                        style = "width:150%",
+                                        pre(includeText("server_codes/D3MatrixPlot.R"))
+                                    )
+                                ),
+                                tabPanel(
+                                    "Javascript Code", 
+                                    tags$div(
+                                        style = "width:150%",
+                                        pre(includeText("r2d3-snippets/D3MatrixPlot.js"))
+                                    )
+                                )
+                            )
+                        )
                     )
                 )
             )
