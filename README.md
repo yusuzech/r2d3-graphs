@@ -26,28 +26,6 @@ SVG Margins, Width, Height and Background Color:
 
 Rectangle Fill and Margin:
 
-> “rect.fill”, “rect.margin”,
+> “rect.fill”, “rect.margin”
 
-``` r
-set.seed(1234)
-my_matrix <- matrix(sample(c(0,1),size = 150,replace = TRUE),nrow = 10,ncol = 15)
-
-height <- 300
-width <- 300               
-D3MatrixPlot <- r2d3(data = my_matrix,
-     script = "r2d3-snippets/D3MatrixPlot.js",
-     options = list(
-         params = list(
-            "rect.fill" = "red",
-            "rect.margin" = "20%",
-            "svg.fix" = "height",
-            "svg.aspectRatio" = 1.5
-         )
-    ),
-     width = width,
-     height = height)
-
-# D3MatrixPlot
-```
-
-![](d3-imgs/D3MatrixPlot.png)
+![](inst/demo/d3-imgs/D3MatrixPlot.png)

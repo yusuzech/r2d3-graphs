@@ -1,0 +1,12 @@
+name: demo
+title: demo
+username:
+account: yifyan-yusuzech
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1052029
+bundleId: 2266217
+url: https://yifyan-yusuzech.shinyapps.io/demo/
+when: 1564113317.33325
+asMultiple: FALSE
+asStatic: FALSE
